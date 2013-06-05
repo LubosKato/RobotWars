@@ -29,14 +29,9 @@ namespace RobotWarsLogic.CommandLineReaders
                 uint xAxis = Convert.ToUInt32(words[0]);
                 uint yAxis = Convert.ToUInt32(words[1]);
                 Direction direction = Helper.ConvertToDirection(words[2]);
-                this.context.Robot = new RobotWars().EnterArena(this.context.Arena, xAxis, yAxis, direction);
+                bool robotCreated = new RobotWars().EnterArena(this.context.Arena, xAxis, yAxis, direction);
 
-                if (this.context.Robot == null)
-                {
-                    return false;
-                }
-
-                result = String.Format("Robot creation {0}", this.context.Robot != null ? "successful" : "failed");
+                result = String.Format("Robot creation {0}", robotCreated ? "succesful" : "failed");
             }
             catch (Exception)
             {
@@ -49,7 +44,5 @@ namespace RobotWarsLogic.CommandLineReaders
             }
             return true;
         }
-
-
     }
 }

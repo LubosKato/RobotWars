@@ -31,11 +31,6 @@ namespace RobotWars
 
                 foreach (var commandReader in commanLineReaders)
                 {
-                    //if (!commandReader.Validate(command))
-                    //{
-                    //    continue;
-                    //}
-
                     commandReader.Process(command);
                     break;
                 }

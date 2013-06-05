@@ -19,6 +19,6 @@ namespace RobotWarsLogic.Interfaces
         /// </summary>
         void Spin(bool clockwise = true);
 
-        RobotWars EnterArena(IArena arena, uint x, uint y, Direction direction);
+        bool EnterArena(IArena arena, uint x, uint y, Direction direction);
     }
 }

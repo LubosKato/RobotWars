@@ -71,11 +71,11 @@ namespace RobotWarsLogic
             }
         }
 
-        public RobotWars EnterArena(IArena arena, uint x, uint y, Direction direction)
+        public bool EnterArena(IArena arena, uint x, uint y, Direction direction)
         {
             if (arena == null || x > arena.Width || y > arena.Height)
             {
-                return null;
+                return false;
             }
 
             this.Arena = arena;
@@ -83,7 +83,7 @@ namespace RobotWarsLogic
             this.YAxis = y;
             this.Direction = direction;
 
-            return this;
+            return true;
         }
     }
 }

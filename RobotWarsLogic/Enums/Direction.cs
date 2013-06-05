@@ -1,5 +1,8 @@
-﻿namespace RobotWarsLogic.Enums
+﻿using System;
+
+namespace RobotWarsLogic.Enums
 {
+    [Flags]
     public enum Direction
     {
         North = 1,

@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using RobotWarsLogic;
 using RobotWarsLogic.Enums;
 
 namespace RobotWarsTests.RobotWarTests
@@ -31,35 +30,35 @@ namespace RobotWarsTests.RobotWarTests
         [Test]
         public void EnterArena_InvalidXCoordinate_ReturnFalse()
         {
-            RobotWars success = robot.EnterArena(this.arenaStub, invalidCoordinate, validCoordinate, Direction.North);
-            Assert.IsNull(success);
+            bool success = robot.EnterArena(this.arenaStub, invalidCoordinate, validCoordinate, Direction.North);
+            Assert.IsFalse(success);
         }
 
         [Test]
         public void EnterArena_ValidCoordinates_ReturnTrue()
         {
-            RobotWars success = robot.EnterArena(this.arenaStub, validCoordinate, validCoordinate, Direction.North);
-            Assert.NotNull(success);
+            bool success = robot.EnterArena(this.arenaStub, validCoordinate, validCoordinate, Direction.North);
+            Assert.IsTrue(success);
         }
 
         [Test]
         public void EnterArena_InvalidYCoordinate_ReturnFalse()
         {
-            RobotWars success = robot.EnterArena(this.arenaStub, validCoordinate, invalidCoordinate, Direction.North);
-            Assert.IsNull(success);
+            bool success = robot.EnterArena(this.arenaStub, validCoordinate, invalidCoordinate, Direction.North);
+            Assert.IsFalse(success);
         }
 
         [Test]
         public void EnterArena_ArenaIsNull_ReturnFalse()
         {
-            RobotWars success = robot.EnterArena(null, validCoordinate, invalidCoordinate, Direction.North);
-            Assert.IsNull(success);
+            bool success = robot.EnterArena(null, validCoordinate, invalidCoordinate, Direction.North);
+            Assert.IsFalse(success);
         }
 
         [Test]
         public void EnterArena_DirectionIsEast_RobotDirectionIsSet()
         {
-            var robotDirection = Direction.East;
+            const Direction robotDirection = Direction.East;
             robot.EnterArena(this.arenaStub, validCoordinate, validCoordinate, robotDirection);
             Assert.AreEqual(robotDirection, robot.Direction);
         }
@@ -67,7 +66,7 @@ namespace RobotWarsTests.RobotWarTests
         [Test]
         public void EnterArena_DirectionIsSouth_RobotDirectionIsSet()
         {
-            var robotDirection = Direction.South;
+            const Direction robotDirection = Direction.South;
             robot.EnterArena(this.arenaStub, validCoordinate, validCoordinate, robotDirection);
             Assert.AreEqual(robotDirection, robot.Direction);
         }
